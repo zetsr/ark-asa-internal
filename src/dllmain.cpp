@@ -258,7 +258,7 @@ static __forceinline void Func::绘制菜单(SDK::UCanvas* canvas) {
             tab = 3;
         }
 
-        if (ZeroGUI::ButtonTab(const_cast<wchar_t*>(L"功能"), SDK::FVector2D {100, 20}, tab == 0)) {
+        if (ZeroGUI::ButtonTab(const_cast<wchar_t*>(L"功能"), SDK::FVector2D {100, 20}, tab == 4)) {
             tab = 4;
         }
 
@@ -1136,8 +1136,10 @@ static __forceinline void init() {
     } while (!ZeroGUI::Font);
 
     void* p_post_render = nullptr;
-    // mov rax, [rcx] jmp [rax + offset] ... mov [rsp + offset], rbp mov [rsp + offset], rdi push r12 push r14
-    auto aob_results = AOB::Scan("48 8B 01 48 FF A0 ? ? ? ? ? ? ? ? ? ? 48 89 6C 24 ? 48 89 7C 24 ? 41 54 41 56");
+    // 已过期 mov rax, [rcx] jmp [rax + offset] ... mov [rsp + offset], rbp mov [rsp + offset], rdi push r12 push r14
+
+
+    AOB::Result aob_results = AOB::Scan("8B C2 35 ?? ?? ?? ?? 44");
 
     if (aob_results && aob_results.size() > 0 && aob_results[0]) {
         p_post_render = aob_results[0];
