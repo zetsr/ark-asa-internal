@@ -755,6 +755,10 @@ static __forceinline void Func::绘制玩家信息(SDK::AShooterCharacter* actor, SDK:
 }
 
 static __forceinline void Func::绘制玩家骨骼(SDK::AShooterCharacter* actor, SDK::UCanvas* canvas, SDK::FLinearColor color) {
+    if (!actor->Mesh) {
+        return;
+    }
+
     static SDK::FName b_8, b_5, b_1, b_152, b_179, b_206, b_212;
     static bool names_init = false;
     if (!names_init) {
