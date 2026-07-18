@@ -595,11 +595,11 @@ void inline Func::on_actors(SDK::UCanvas* canvas) {
             if (actor->IsShooterCharacter()) {
                 Func::绘制玩家ALL(reinterpret_cast<SDK::AShooterCharacter*>(actor), canvas);
             }
-
-            if (Var::toggle_aim) {
-                Func::自瞄();
-            }
         }
+    }
+
+    if (Var::toggle_aim) {
+        Func::自瞄();
     }
 }
 
